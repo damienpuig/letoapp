@@ -48,10 +48,24 @@ leto.controller('MoviesCtrl', ['$scope', '$routeParams', 'moviesService', functi
 // pid is the id of the current movie
 leto.controller('MovieCtrl', ['$scope', '$routeParams', 'moviesService', function ($scope, $routeParams, moviesService) {
     $scope.movie;
+    $scope.properties = new Array();
+
     var pid = $routeParams.pid;
+
+    var format = function (obj, objName) {
+        for ( var prop in obj) {
+            if (obj.hasOwnProperty(prop)) {
+                $scope.properties.push({'name': prop,'format': objName + "." + prop + " = " + obj[prop]});
+            }
+        }
+    };
 
     moviesService.get(pid, function (movie) {
         $scope.movie = movie.programme;
+        $scope.movie.image.url = 'http://ichef.bbci.co.uk/images/ic/272x153/'+ $scope.movie.image.pid + '.jpg';
+
+        format(movie.programme, movie.programme.constructor.name);
+
         $scope.$apply();
     });
 }]);
