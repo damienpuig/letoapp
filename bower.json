@@ -1,0 +1,14 @@
+{
+  "name": "letoproject",
+  "version": "0.0.1",
+  "authors": [
+    "Damien PUIG <damien.puig@gmail.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "angular-cookies": "~1.0.8",
+    "angular-resource": "~1.0.8",
+    "angular": "~1.0.8",
+    "bootstrap": "~3.0.1"
+  }
+}
