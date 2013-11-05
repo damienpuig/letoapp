@@ -8,6 +8,7 @@ var locomotive = require('locomotive')
 
 var HomeController = new Controller();
 
+//render the first page where the angularJS app will begin
 HomeController.index = function () {
     this.title = 'A single web page app for leto.'
     this.render();
