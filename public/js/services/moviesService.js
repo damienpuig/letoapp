@@ -13,9 +13,16 @@ leto.service('moviesService', ['$http', function ($http) {
           }});
       },
       get: function(pid, callback){
-
+          $.ajax({
+              type:'GET',
+              url:'http://www.bbc.co.uk/programmes/' + pid + '.json',
+              success:function (data) {
+                  callback(data);
+              }
+          });
       },
       getrating: function(novieName, callback){
+
 
       }
     };

@@ -20,4 +20,9 @@ leto.controller('MoviesCtrl', ['$scope', '$routeParams', 'moviesService', functi
 leto.controller('MovieCtrl', ['$scope', '$routeParams', 'moviesService', function ($scope, $routeParams, moviesService) {
     $scope.movie;
     var pid = $routeParams.pid;
+
+    moviesService.get(pid, function (movie) {
+        $scope.movie = movie.programme;
+        $scope.$apply();
+    });
 }]);
