@@ -39,3 +39,4 @@ Once locomotive is installed and all other dependencies, simply,
 
     $ lcm server
 
+and browse http://localhost:3000/
