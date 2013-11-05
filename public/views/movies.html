@@ -2,14 +2,27 @@
     <strong>Search:</strong>
     <input ng-model="query" class="form-control">
 </div>
-<div class="col-md-8">
+<div class="col-md-8 col-md-offset-1">
     <ul class="movies">
         <li ng-repeat="movie in movies.episodes | filter:query" class="thumbnail">
             <div class="row" id="{{movie.programme.pid}}">
                 <div class="col-md-6">
                     <a href="#/movies/{{movie.programme.pid}}"> {{ movie.programme.title }} </a>
                 </div>
-            </div>
+                <div class="col-md-4 col-md-offset-2">
+
+                    <div ng-switch on="movie.hasrating">
+                        <div ng-switch-when="true">
+                            <div ng-repeat='src in movie.tmdb.ratings' style="display:inline-block">
+                                <img ng-src="{{src}}"/>
+                            </div>
+                            <p style="display:inline-block">{{movie.tmdb.vote_average}}/10 ({{movie.tmdb.vote_count}} vote(s)) </p>
+                        </div>
+                        <div ng-switch-default>
+                            <p> The movie does not have rating.</p>
+                        </div>
+                    </div>
+                </div>
         </li>
     </ul>
 </div>

@@ -6,10 +6,39 @@
 //controller handling the movie list
 leto.controller('MoviesCtrl', ['$scope', '$routeParams', 'moviesService', function ($scope, $routeParams, moviesService) {
     $scope.movies;
+
+    var getrating = function () {
+        $scope.movies.episodes.forEach(function (movie) {
+            moviesService.getrating(movie.programme.title, function (data) {
+
+                movie.hasrating = '';
+
+                if (data.results.length > 0) {
+
+                    movie.hasrating = 'true';
+
+                    movie.tmdb = data['results'][0];
+                    movie.tmdb.ratings = [];
+
+                    for (var mark = 0; mark < 10 ; mark++){
+                        if(mark < Math.floor(movie.tmdb.vote_average)) {
+                            movie.tmdb.ratings.push("https://d3a8mw37cqal2z.cloudfront.net/images/star-on.png");
+                        }
+                        else {
+                            movie.tmdb.ratings.push("https://d3a8mw37cqal2z.cloudfront.net/images/star-off.png");
+                        }
+                    }
+                }
+                $scope.$apply();
+            });
+        });
+    };
+
     moviesService.all(function (movies) {
         $scope.movies = movies;
+        getrating();
         console.dir($scope.movies);
-        $scope.$apply();
+
     });
 
 }]);

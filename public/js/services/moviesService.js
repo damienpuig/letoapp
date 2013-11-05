@@ -21,8 +21,24 @@ leto.service('moviesService', ['$http', function ($http) {
               }
           });
       },
-      getrating: function(novieName, callback){
+      getrating: function (movieName, callback){
+          var option = {
+              url: 'http://api.themoviedb.org/3/',
+              mode: 'search/movie?',
+              input: '&query='+ movieName,
+              key: '&api_key=576a17be195c126caaaa18489e13c885',
+              format: function () {
+                  return this.url + this.mode + this.key + this.input;
+              }
+          };
 
+          $.ajax({
+              type: 'GET',
+              url: option.format(),
+              success: function (data) {
+                  callback(data);
+              }
+          });
 
       }
     };
