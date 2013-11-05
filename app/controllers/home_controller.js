@@ -2,6 +2,7 @@
  * Created by Damien on 05/11/13.
  */
 
+// Home controller rendering the first single page
 var locomotive = require('locomotive')
     , Controller = locomotive.Controller;
 
