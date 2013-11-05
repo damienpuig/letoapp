@@ -1,0 +1,14 @@
+//Created by Damien on 05/11/13.
+
+doctype 5
+html(lang="en")
+    include ../includes/header
+    body(ng-app='leto')
+        div.jumbotron
+            h1 Leto Movie single page app
+            a(href="#/movies/") Get BBC movies
+        div.container-fluid
+            div.row-fluid
+                div(ng-view, ng-animate="{enter: 'enter-animation', leave: 'leave-animation'}")
+                    block content
+    include ../includes/footer
