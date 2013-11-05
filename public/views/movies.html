@@ -1,0 +1,15 @@
+<div class="col-md-3">
+    <strong>Search:</strong>
+    <input ng-model="query" class="form-control">
+</div>
+<div class="col-md-8">
+    <ul class="movies">
+        <li ng-repeat="movie in movies.episodes | filter:query" class="thumbnail">
+            <div class="row" id="{{movie.programme.pid}}">
+                <div class="col-md-6">
+                    <a href="#/movies/{{movie.programme.pid}}"> {{ movie.programme.title }} </a>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

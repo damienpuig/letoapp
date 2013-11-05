@@ -6,6 +6,12 @@
 //controller handling the movie list
 leto.controller('MoviesCtrl', ['$scope', '$routeParams', 'moviesService', function ($scope, $routeParams, moviesService) {
     $scope.movies;
+    moviesService.all(function (movies) {
+        $scope.movies = movies;
+        console.dir($scope.movies);
+        $scope.$apply();
+    });
+
 }]);
 
 

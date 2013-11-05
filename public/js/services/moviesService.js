@@ -5,7 +5,12 @@
 leto.service('moviesService', ['$http', function ($http) {
     return {
       all: function(callback){
-
+          $.ajax({
+                  type:'GET',
+                  url:'http://www.bbc.co.uk/tv/programmes/formats/films/player/episodes.json',
+                  success:function(data) {
+                      callback(data);
+          }});
       },
       get: function(pid, callback){
 
