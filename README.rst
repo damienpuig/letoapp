@@ -29,7 +29,7 @@ Then,
 
 .. code-block:: bash
 
-    $ sudo bower install
+    $ bower install
 
 will install bower dependencies (http://bower.io/)
 

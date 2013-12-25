@@ -3,6 +3,7 @@
     "version": "0.0.1",
     "private": true,
     "dependencies": {
+        "bower":"1.2.8",
         "locomotive": "0.3.x",
         "express": "3.x.x",
         "connect-powered-by": "0.1.x",
