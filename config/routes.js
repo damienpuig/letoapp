@@ -7,4 +7,5 @@
 // information.
 module.exports = function routes() {
   this.root('home#index');
+  this.match('consoles', { controller: 'console', action: 'consoles' });
 }

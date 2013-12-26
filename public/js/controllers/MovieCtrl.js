@@ -49,7 +49,6 @@ leto.controller('MoviesCtrl', ['$scope', '$routeParams', 'moviesService', functi
 
 }]);
 
-
 //controller handling a single movie detail
 // pid is the id of the current movie
 leto.controller('MovieCtrl', ['$scope', '$routeParams', 'moviesService', function ($scope, $routeParams, moviesService) {

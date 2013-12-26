@@ -23,4 +23,5 @@ module.exports = function() {
   this.use(express.bodyParser());
   this.use(express.methodOverride());
   this.use(this.router);
+
 }

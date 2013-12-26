@@ -1,12 +1,16 @@
 //Created by Damien on 05/11/13.
 
-doctype 5
+doctype html
 html(lang="en")
     include ../includes/header
     body(ng-app='leto')
         div.jumbotron
-            h1 Leto Movie single page app
-            a(href="/movies/") Get BBC movies
+            h1 Montaud game station
+            a(href="/movies/") Get BBC movies.
+            br
+            a(href="/consoles/") Les consoles.
+            br
+            a(href="/new/") Ajouter un jeu.
         div.container-fluid
             div.row-fluid
                 div(ng-view, ng-animate="{enter: 'enter-animation', leave: 'leave-animation'}")
