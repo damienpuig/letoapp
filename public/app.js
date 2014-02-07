@@ -3,17 +3,16 @@
  */
 
  // initialisation of the leto app
-var leto = angular.module('leto', ['ngResource']);
+var montaud = angular.module('montaud', ['ngResource']);
 
-
-//leto routes
-leto.config(function ($routeProvider, $locationProvider) {
+montaud.config(function ($routeProvider, $locationProvider) {
     $routeProvider
         .when('/', {templateUrl: 'views/index.html'})
         .when('/movies', {controller: 'MoviesCtrl', templateUrl: '/views/movies.html'})
         .when('/movies/:pid', { controller: 'MovieCtrl', templateUrl: '/views/movie.html'})
         .when('/consoles', {controller: 'ConsolesCtrl', templateUrl: '/views/consoles.html'})
-        .when('/new', {controller: 'SearchAddController', templateUrl: '/views/add_game.html'})
+        .when('/add', {controller: 'SearchAddController', templateUrl: '/views/add_game.html'})
+        .when('/games', {controller: 'GameCtrl', templateUrl: '/views/games.html'})
         .otherwise({redirectTo: '/'});
     
     $locationProvider.html5Mode(true);

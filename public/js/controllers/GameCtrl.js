@@ -1,7 +1,7 @@
 /**
  * Created by Damien on 05/11/13.
  */
-leto.directive("delayedSearch", ['$timeout', function($timeout) {
+montaud.directive("delayedSearch", ['$timeout', function($timeout) {
         return {
             restrict: "E",
             template: '<input type="text" ng-model="model" />',
@@ -24,8 +24,12 @@ leto.directive("delayedSearch", ['$timeout', function($timeout) {
             }
         }
     }])
-    .controller('SearchAddController', ['$scope', '$routeParams', 'jvcService', function ($scope, $routeParams, jvcService) {
-        $scope.consoles = jvcService.get_consoles()
+    .controller('GameCtrl', ['$scope', '$routeParams', 'jvcService', function ($scope, $routeParams, jvcService) {
 
-        console.log($scope.consoles)
+        var cb = function(data){
+            console.log(data)
+            $scope.consoles = data
+        }
+
+        jvcService.get_consoles(cb);
     }]);

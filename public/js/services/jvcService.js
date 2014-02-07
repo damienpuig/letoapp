@@ -2,7 +2,12 @@
  * Created by Damien on 05/11/13.
  */
 //declaration of services in order to make request to the server / other sources
-leto.service('jvcService', ['$http', function ($http) {
+montaud.service('jvcService', ['$http', function ($http) {
+
+    var credentials = {
+        'username': 'appandr',
+        'passwd': 'e32!cdf'
+    }
 
     return {
 
@@ -27,26 +32,15 @@ leto.service('jvcService', ['$http', function ($http) {
       },
 
       get_consoles: function(callback){
+          var build_url = 'http://' + credentials['username']
+          + ':' + credentials['passwd'] + '@ws.jeuxvideo.com/00.machines_version.xml'
           $.ajax({
-//              crossDomain: true,
-//              xhrFields: {
-//                  // The 'xhrFields' property sets additional fields on the XMLHttpRequest.
-//                  // This can be used to set the 'withCredentials' property.
-//                  // Set the value to 'true' if you'd like to pass cookies to the server.
-//                  // If this is enabled, your server must respond with the header
-//                  // 'Access-Control-Allow-Credentials: true'.
-//                  withCredentials: true
-//              },
-              beforeSend: function (xhr) {
-                  xhr.setRequestHeader ("Authorization", "Basic YXBwYW5kcjplMzIhY2Rm");
-              },
-//              username: 'appandr',
-//              password: 'e32!cdf',
               type: 'GET',
-              url:'http://ws.jeuxvideo.com/00.machines_version.xml',
+              url: build_url,
               success:function(data) {
                   callback(data);
-              }});
+              }
+          });
         }
     }
 }]);
